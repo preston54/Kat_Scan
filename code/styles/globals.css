@@ -1,3 +1,5 @@
+@import url(./createaccount.css);
+
 html,
 body {
   padding: 0;
@@ -20,7 +22,8 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    /*text-align: center; /* should be added to a new style*/
+    color: black;
+    background: blue;
   }
 }

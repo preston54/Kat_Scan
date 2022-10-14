@@ -1,0 +1,25 @@
+.fullpage{
+    height: 100vh;
+    width: 100vw;
+    background-color: blue;
+}
+
+.box{
+
+    height: 80%;
+    width: 40%;
+    background-color: white;
+    border: 5px black;
+    border-radius: 20px;
+    border-style: solid;
+    text-align: center;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+
+.boxtext{
+
+    margin-bottom: 5%;
+    font-size: larger;
+}
+
