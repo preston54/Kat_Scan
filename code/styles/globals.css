@@ -1,3 +1,5 @@
+@import url(./student_profile.css);
+
 html,
 body {
   padding: 0;
@@ -20,7 +22,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
+    color: rgb(106, 20, 206);
     background: black;
   }
 }
