@@ -19,11 +19,11 @@ a {
 
 @media (prefers-color-scheme: dark) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
   body {
     /*text-align: center; /* should be added to a new style*/
     color: black;
-    background: blue;
+    background: #c9daf8ff;
   }
 }

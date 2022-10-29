@@ -2,52 +2,85 @@
 
 const CreateAccount = () => {
 
+    const submitAcc = async (event) => {
+
+        event.preventDefault();
+        const fname = event.target.first.value;
+        const lname = event.target.last.value;
+        const username = event.target.username.value;
+        const password = event.target.password.value;
+        const conpass = event.target.con_password.value;
+        const email = event.target.email.value;
+        const apiUrlEndpoint = 'http://localhost:3000/api/postdata-lib';
+        const postData = {
+      
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+            FirstName: fname,
+            LastName: lname,
+            Password: password,
+            Email: email,
+            UserName: username,
+            }),
+      
+          };
+      
+            const response = await fetch(apiUrlEndpoint, postData);
+      
+            const res = await response.json();
+            alert("Your account has been created!");
+        }
+    
+
     return(
         <div className="fullpage">
+            <div className="App_Name">
+            <img src="https://www.shsu.edu/dept/marketing/logos/SHSU-RGB_Orange%20Box.png" alt="SHSU"></img> 
+                <h2>
+                    Kat Scan
+                </h2>
+            </div>
             <div className="box">
-            <h1>
+            <h1 className = "header">
                 Create Account
             </h1>
-                <form action="/send-data-here" method="post">
+                <form id = "accform" onSubmit={submitAcc} method="post">
                     <br></br>
                     <div className="boxtext">
-                    <label for="first">First name:</label>
-                    <input type="text" id="first" name="first" placeholder="First Name" />
+                    <input className = "inputs" type="text" id="first" name="first" placeholder="First Name"/>
                     </div>
                     <br></br>
                     <div className="boxtext">
-                    <label for="last">Last name:</label>
-                    <input type="text" id="last" name="last" placeholder="Last name"/>
+                    <input className = "inputs" type="text" id="last" name="last" placeholder="Last name"/>
                     </div>
                     <br></br>
                     <div className="boxtext">
-                    <label for="password">Password:</label>
-                    <input type="text" id="password" name="password" placeholder="Password"/>
+                    <input className = "inputs" type="text" id="username" name="username" placeholder="User Name"/>
                     </div>
                     <br></br>
                     <div className="boxtext">
-                    <label for="con_password">Confirm Password:</label>
-                    <input type="text" id="con_password" name="con_password" placeholder="Confirm Password"/>
+                    <input className = "inputs" type="text" id="password" name="password" placeholder="Password"/>
                     </div>
                     <br></br>
                     <div className="boxtext">
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" name="email" placeholder="Email"/>
+                    <input className = "inputs" type="text" id="con_password" name="con_password" placeholder="Confirm Password"/>
                     </div>
                     <br></br>
                     <div className="boxtext">
-                    <input type="radio" id="faculty" name="class" value="Faculty"/>
-                    <label for="faculty">Faculty</label>
-                    <input type="radio" id="student" name="class" value="Student"/>
-                    <label for="student">Student</label>
+                    <input className = "inputs" type="email" id="email" name="email" placeholder="Email"/>
                     </div>
                     <br></br>
-                    <button type="submit">Submit</button>
+                    <button className = "submitButton" type="submit">Submit</button>
+                    <p className = "header">
+                        <a href="login_page" className="formlink">Return to login page</a>
+                    </p>
                 </form>
             </div>
         </div>
 
     )
+
 }
 
 export default CreateAccount;
