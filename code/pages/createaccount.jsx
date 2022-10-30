@@ -35,7 +35,7 @@ const CreateAccount = () => {
 
     return(
         <div className="fullpage">
-            <div className="App_Name">
+            <div className="CAApp_Name">
             <img src="https://www.shsu.edu/dept/marketing/logos/SHSU-RGB_Orange%20Box.png" alt="SHSU"></img> 
                 <h2>
                     Kat Scan

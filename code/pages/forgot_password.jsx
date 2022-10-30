@@ -3,7 +3,7 @@ const forgot_password = () => {
     return(
 
         <div class="passwordContainer">
-            <div class="App_Name">
+            <div class="FP_App_Name">
             <img src="https://www.shsu.edu/dept/marketing/logos/SHSU-RGB_Orange%20Box.png" alt="SHSU"></img> 
                 <h2>
                     Kat Scan
@@ -11,7 +11,7 @@ const forgot_password = () => {
             </div>
             <form class="passwordForm" id="login">
             <br></br>
-                <div class="header">
+                <div class="FP_header">
                     <h2>Forgot your password</h2>
                 </div>
                 <br></br>
