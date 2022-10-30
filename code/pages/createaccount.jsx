@@ -8,29 +8,36 @@ const CreateAccount = () => {
         const fname = event.target.first.value;
         const lname = event.target.last.value;
         const username = event.target.username.value;
-        const password = event.target.password.value;
-        const conpass = event.target.con_password.value;
+        const pass1 = event.target.password.value;
+        const pass2 = event.target.con_password.value;
         const email = event.target.email.value;
-        const apiUrlEndpoint = 'http://localhost:3000/api/postdata-lib';
-        const postData = {
-      
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-            FirstName: fname,
-            LastName: lname,
-            Password: password,
-            Email: email,
-            UserName: username,
-            }),
-      
-          };
-      
-            const response = await fetch(apiUrlEndpoint, postData);
-      
-            const res = await response.json();
-            alert("Your account has been created!");
+
+        if(pass1 == pass2){
+            const apiUrlEndpoint = 'http://localhost:3000/api/postdata-lib';
+            const postData = {
+        
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                FirstName: fname,
+                LastName: lname,
+                Password: pass1,
+                Email: email,
+                UserName: username,
+                }),
+        
+            };
+        
+                const response = await fetch(apiUrlEndpoint, postData);
+        
+                const res = await response.json();
+                alert("Your account has been created!");
         }
+        else{
+
+            alert("Passwords do not match");
+        }
+    }
     
 
     return(
