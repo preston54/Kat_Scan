@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client'
-import {query} from "../../lib/db";
 
 const prisma = new PrismaClient();
 
