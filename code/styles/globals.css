@@ -1,3 +1,5 @@
+@import url(./login_page.css);
+@import url(./forgot_password.css);
 html,
 body {
   padding: 0;

@@ -1,0 +1,87 @@
+.container{
+    /* background-image: url("login_page_background.jpg");  */
+    background-image: url("shsucampus.jpg"); 
+    overflow: hidden;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.App_Name{
+    height: 10%;
+    width: 25%;
+    display:flex;
+    background-color: #6fa8dcff;
+    border: 5px black;
+    border-radius: 0px;
+    border-style: solid;
+    text-align: center;
+    font-size: 25px;
+    margin-right: 30%;
+    margin-top: 0%;
+}
+
+/* .form{
+    height: 35%;
+    width: 25%;
+    background-color: white;
+    border: 10px black;
+    border-radius: 40px;
+    border-style: solid;
+    text-align: center;
+    font-size: 18px; 
+    margin-left: 65%;
+    margin-top: 0%;
+    font-size: 18px;
+} */
+
+.form{
+    height: 35%;
+    width: 25%;
+    background-color: white;
+    border: 10px black;
+    border-radius: 40px;
+    border-style: solid;
+    text-align: center;
+    font-size: 18px; 
+    margin-left: 40%;
+    margin-top: 8%;
+    font-size: 18px;
+}
+
+.passwordLabel{
+    padding: 12px 20px;
+    margin-right: 33px;
+}
+
+.passwordInput{
+    padding: 10px 10px;
+    margin-left: 0px;
+}
+
+.emailLabel{
+    padding: 12px 12px;
+    margin-right: 33px;
+}
+
+.emailInput{
+    padding: 10px 10px;
+    margin-left: 0px;
+}
+
+
+.form-control{
+    padding: 8px;
+}
+
+.form__text{
+    text-decoration: underline
+}
+
+.form__button{
+    text-decoration: bold;
+    /* background-color: #59e4ef; */
+    background-color: #eb7222;
+    font-size: 20px;
+    padding: 12px 25px;
+}
