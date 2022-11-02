@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
 
 
-        return console.log(user);
+        return res.status(200).json(user);
 
         // const querySQL = "SELECT * FROM Users WHERE UserName = ?";
 

@@ -8,9 +8,9 @@ datasource db {
 }
 
 model Users {
-  FirstName String @db.VarChar(45)
-  LastName  String @db.VarChar(45)
-  Password  String @db.VarChar(45)
-  Email     String @db.VarChar(255)
-  UserName  String @id @db.VarChar(45)
+  FirstName String @db.VarChar(255)
+  LastName  String @db.VarChar(255)
+  Password  String @db.VarChar(255)
+  Email     String @unique(map: "Email_UNIQUE") @db.VarChar(255)
+  UserName  String @id @db.VarChar(255)
 }

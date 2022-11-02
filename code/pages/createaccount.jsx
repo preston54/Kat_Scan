@@ -29,17 +29,19 @@ const CreateAccount = () => {
             };
         
                 const response = await fetch(apiUrlEndpoint, postData);
-        
-                const res = await response.json();
-                alert("Your account has been created!");
-        }
-        else{
+                // if (response == "201"){
+                //     alert("Your account has been created!");
+                // }
+                // if (response == "500"){
+                //     alert("Your User name or email is not valid");
+                // }
+        }else{
 
             alert("Passwords do not match");
         }
     }
     
-
+    
     return(
         <div className="fullpage">
             <div className="CAApp_Name">

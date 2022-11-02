@@ -1,40 +1,72 @@
-
+import { Router } from 'next/router';
 
 const login_page = () => {
 
+    const submitLog = async (event) => {
+
+
+
+        const email = event.target.email.value;
+        const pass = event.target.password.value;
+        event.preventDefault();
+        const apiUrlEndpoint = 'http://localhost:3000/api/logindata-lib';
+            const postData = {
+        
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                Email: email,
+                Password: pass,
+                }),
+        
+            };
+        
+            const response = await fetch(apiUrlEndpoint, postData);
+            
+            if(!response.body){
+
+                alert("User not found");
+            }
+            else{
+
+                Router.push("/createaccount");
+            }
+    }
+
+
     return(
 
-        <div class="container">
-            <div class="App_Name">
+        <div className="container">
+            <div className="App_Name">
             <img src="https://www.shsu.edu/dept/marketing/logos/SHSU-RGB_Orange%20Box.png" alt="SHSU"></img> 
-                <h2 class="KatScan">
+                <h2 className="KatScan">
                     Kat Scan
                 </h2>
                 
             </div>
-            <form class="form" id="login">
-                <div class="header">
+            <form className="form" onSubmit = {submitLog} id="login">
+                <div className="header">
                     <h2>LOGIN</h2>
                 </div>
-                <div class="form-control">
-                    <label class="emailLabel">SHSU Email:</label>
-                    <input class="emailInput" type="text"  placeholder="abc123@shsu.edu" id="email"/>
+                <div className="form-control">
+                    <label className="emailLabel">SHSU Email:</label>
+                    <input className="emailInput" type="text"  placeholder="abc123@shsu.edu" id="email"/>
                 </div>
                 <br></br>
-                <div class="form-control">
-                    <label class="passwordLabel">   Password:</label>
-                    <input class="passwordInput" type="text"  placeholder="Password" id="username"/>
+                <div className="form-control">
+                    <label className="passwordLabel">   Password:</label>
+                    <input className="passwordInput" type="text"  placeholder="Password" id="password"/>
                 </div>
                 <br></br>
 
-                <button class="form__button" type="submit">SUBMIT</button>
+                <button className="form__button" type="submit">SUBMIT</button>
                 <br></br>
 
-                <p class="form__text">
-                    <a href="forgot_password" class="form__link">Forgot your password?</a>
+                <p className="form__text">
+                    <a href="forgot_password" className="form__link">Forgot your password?</a>
                 </p>
-                <p class="form__text">
-                    <a class="form__link" href="createaccount" id="linkCreateAccount">Don't have an account? Create account</a>
+                <p className="form__text">
+                    <a className="form__link" href="createaccount" id="linkCreateAccount">Don't have an account? Create account</a>
                 </p>
             </form>
         </div>
