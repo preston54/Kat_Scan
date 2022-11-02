@@ -29,12 +29,12 @@ const CreateAccount = () => {
             };
         
                 const response = await fetch(apiUrlEndpoint, postData);
-                // if (response == "201"){
-                //     alert("Your account has been created!");
-                // }
-                // if (response == "500"){
-                //     alert("Your User name or email is not valid");
-                // }
+                if (response.status == 200){
+                    alert("Your account has been created!");
+                }
+                if (response.status == 500){
+                    alert("Your User name or email is not valid");
+                }
         }else{
 
             alert("Passwords do not match");

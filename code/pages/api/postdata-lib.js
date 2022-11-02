@@ -5,9 +5,9 @@ export default async function handler(req, res) {
         const {body : data} = req;
         const newUser = await prisma.Users.create({data});
 
-        return res.status(200).send(newUser);
+        res.status(200).json(newUser);
         
     }catch (error) {
-        console.log(error)
+        res.status(500).json({error: error.message});
     }
   }

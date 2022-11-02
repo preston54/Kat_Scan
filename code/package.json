@@ -17,6 +17,7 @@
     "serverless-mysql": "^1.5.4"
   },
   "devDependencies": {
+    "@types/react": "18.0.24",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1",
     "prisma": "^4.5.0"

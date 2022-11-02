@@ -1,13 +1,14 @@
-import { Router } from 'next/router';
+import  Router from 'next/router';
 
 const login_page = () => {
+
 
     const submitLog = async (event) => {
 
 
-
         const email = event.target.email.value;
         const pass = event.target.password.value;
+        const uname = "";
         event.preventDefault();
         const apiUrlEndpoint = 'http://localhost:3000/api/logindata-lib';
             const postData = {
@@ -20,16 +21,20 @@ const login_page = () => {
                 }),
         
             };
-        
             const response = await fetch(apiUrlEndpoint, postData);
             
-            if(!response.body){
-
-                alert("User not found");
+            if (response.status == 200){
+                const responsedata = await response.json();
+                console.log(responsedata);
+                uname = responsedata.UserName;
+                alert("user found" + uname);
+                Router.push({
+                    pathname: 'http://localhost:3000/users/' + uname,
+                });
             }
             else{
 
-                Router.push("/createaccount");
+                alert("User not found, Please check your email or password");
             }
     }
 
