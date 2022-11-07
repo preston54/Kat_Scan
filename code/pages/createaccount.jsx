@@ -21,7 +21,7 @@ const CreateAccount = () => {
             LastName: lname,
             Password: password,
             Email: email,
-            UserName: username,
+            Username: username,
             }),
       
           };
