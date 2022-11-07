@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     const email = req.body.Email; 
     try{
 
-        const user = await prisma.Users.findFirstOrThrow({
+        const user = await prisma.users.findFirstOrThrow({
             where:{
                 AND:[
                     {Email: email},
