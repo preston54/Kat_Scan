@@ -7,10 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users {
+model Users {
   FirstName String @db.VarChar(255)
   LastName  String @db.VarChar(255)
   Password  String @db.VarChar(255)
-  Email     String @unique(map: "Username_UNIQUE") @db.VarChar(255)
-  Username  String @id @db.VarChar(255)
+  Email     String @unique(map: "Email_UNIQUE") @db.VarChar(255)
+  UserName  String @id @db.VarChar(255)
 }
