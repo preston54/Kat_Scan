@@ -1,11 +1,16 @@
 import prisma from '../../lib/prisma';
+import excuteQuery from '../../lib/mysql';
 
 export default async function handler(req, res) {
     try{
         const {body : data} = req;
-        const newUser = await prisma.Users.create({data});
-
-        res.status(200).json(newUser);
+        const newnewuser = await excuteQuery({
+            query: 'INSERT INTO Users WHERE (FirstName, LastName, Password, Email, UserName) VALUES(?, ?, ?, ?, ?)',
+            values: [data.FirstName, data.LastName, data.Password, data.Email, data.UserName],
+        });
+        // const newUser = await prisma.Users.create({data});
+        console.log(newnewuser);
+        res.status(200).json(newnewuser);
         
     }catch (error) {
         res.status(500).json({error: error.message});
