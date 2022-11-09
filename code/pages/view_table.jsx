@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import styles from '../styles/Home.module.css'
+import { useEffect, useState } from "react";
 
 let classN = "Fall 2022 COSC 4319 Software Engineering";
 
@@ -19,10 +19,39 @@ export default function Home() {
   const isTabTwoSelected = !!query.tabTwo;
   const isTabThreeSelected = !!query.tabThree;
 
+  const [data, setData] = useState([]);
+  const tablename = "Users";
+  const apiUrlEndpoint = 'http://localhost:3000/api/getdata-lib';
+  const postData = {
+
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+      Table: tablename,
+      }),
+
+  };
+
+  const fetchData = () => {
+
+    fetch(apiUrlEndpoint, postData)
+      .then((response) => response.json())
+      .then((actualData) => {
+        console.log(actualData);
+        setData(actualData);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
+  useEffect(() => {
+    fetchData();
+    }, []);
+
   return (
     
-    <div class="fullpage">
-            <div class="App_Name">
+    <div className="fullpage">
+            <div className="App_NameF">
             <img src="https://www.shsu.edu/dept/marketing/logos/SHSU-RGB_Orange%20Box.png" alt="SHSU"></img> 
                 <h2>
                     Kat Scan
@@ -48,9 +77,29 @@ export default function Home() {
         </nav>
         <section>
         </section>
-        <div class="Ver_SH box QrTabClass">
-            <p align="">"classN"</p>
-            <button class = "QRButton" type="submit">Generate QR code</button>
+        <div>
+            <table className = "displayText">
+                <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>UserName</th>
+                </tr>
+                </thead>
+                <tbody>
+                {data?.map((item, index) => (
+            <tr key={index}>
+                <td>{item.FirstName}</td>
+                <td>{item.LastName}</td>
+                <td>{item.Password}</td>
+                <td>{item.Email}</td>
+                <td>{item.UserName}</td>
+            </tr>
+                ))}
+                </tbody>
+            </table>
         </div>
         
       </main>
