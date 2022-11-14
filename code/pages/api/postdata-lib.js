@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     try{
         const {body : data} = req;
         const newnewuser = await excuteQuery({
-            query: 'INSERT INTO Users (FirstName, LastName, Password, Email, UserName) VALUES(?, ?, ?, ?, ?)',
+            query: 'INSERT INTO users (FirstName, LastName, Password, Email, UserName) VALUES(?, ?, ?, ?, ?)',
             values: [data.FirstName, data.LastName, data.Password, data.Email, data.UserName],
         });
         // const newUser = await prisma.Users.create({data});

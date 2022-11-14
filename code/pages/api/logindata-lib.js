@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
         const {body : data} = req;
         const selectuser = await excuteQuery({
-            query: 'SELECT * FROM Users WHERE Email = ? AND Password = ?',
+            query: 'SELECT * FROM users WHERE Email = ? AND Password = ?',
             values: [data.Email, data.Password],
         });
         // const user = await prisma.Users.findFirstOrThrow({

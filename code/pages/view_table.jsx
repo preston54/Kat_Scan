@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import GeneratePDF from "../components/GeneratePDF";
 
 let classN = "Fall 2022 COSC 4319 Software Engineering";
 
@@ -20,7 +21,7 @@ export default function Home() {
   const isTabThreeSelected = !!query.tabThree;
 
   const [data, setData] = useState([]);
-  const tablename = "Users";
+  const tablename = "users";
   const apiUrlEndpoint = 'http://localhost:3000/api/getdata-lib';
   const postData = {
 
@@ -101,6 +102,8 @@ export default function Home() {
                 </tbody>
             </table>
         </div>
+
+        <GeneratePDF person = {data}/>
         
       </main>
     </div>
