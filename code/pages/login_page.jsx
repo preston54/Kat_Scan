@@ -26,7 +26,7 @@ const login_page = () => {
             if (response.status == 200){
                 const responsedata = await response.json();
                 console.log(responsedata);
-                uname = responsedata.Username;
+                uname = responsedata[0].UserName;
                 alert("user found" + uname);
                 Router.push({
                     pathname: 'http://localhost:3000/users/' + uname,

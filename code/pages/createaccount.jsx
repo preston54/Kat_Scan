@@ -43,46 +43,46 @@ const CreateAccount = () => {
     
     
     return(
-        <div className="fullpage">
+        <div className="CAfullpage">
             <div className="CAApp_Name">
             <img src="https://www.shsu.edu/dept/marketing/logos/SHSU-RGB_Orange%20Box.png" alt="SHSU"></img> 
                 <h2>
                     Kat Scan
                 </h2>
             </div>
-            <div className="box">
-            <h1 className = "header">
+            <div className="CAbox">
+            <h1 className = "CAheader">
                 Create Account
             </h1>
                 <form id = "accform" onSubmit={submitAcc} method="post">
                     <br></br>
-                    <div className="boxtext">
+                    <div className="CAboxtext">
                     <input className = "inputs" type="text" id="first" name="first" placeholder="First Name"/>
                     </div>
                     <br></br>
-                    <div className="boxtext">
+                    <div className="CAboxtext">
                     <input className = "inputs" type="text" id="last" name="last" placeholder="Last name"/>
                     </div>
                     <br></br>
-                    <div className="boxtext">
+                    <div className="CAboxtext">
                     <input className = "inputs" type="text" id="username" name="username" placeholder="User Name"/>
                     </div>
                     <br></br>
-                    <div className="boxtext">
+                    <div className="CAboxtext">
                     <input className = "inputs" type="text" id="password" name="password" placeholder="Password"/>
                     </div>
                     <br></br>
-                    <div className="boxtext">
+                    <div className="CAboxtext">
                     <input className = "inputs" type="text" id="con_password" name="con_password" placeholder="Confirm Password"/>
                     </div>
                     <br></br>
-                    <div className="boxtext">
+                    <div className="CAboxtext">
                     <input className = "inputs" type="email" id="email" name="email" placeholder="Email"/>
                     </div>
                     <br></br>
-                    <button className = "submitButton" type="submit">Submit</button>
-                    <p className = "header">
-                        <a href="login_page" className="formlink">Return to login page</a>
+                    <button className = "CAsubmitButton" type="submit">Submit</button>
+                    <p className = "CAheader">
+                        <a href="login_page" className="CAformlink">Return to login page</a>
                     </p>
                 </form>
             </div>
