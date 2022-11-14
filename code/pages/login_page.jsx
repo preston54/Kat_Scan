@@ -16,7 +16,7 @@ const login_page = () => {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
-                Email: email,
+                Email: email,  //names used in api. left side of colon is whats passed in as the name. right side is the id from the form
                 Password: pass,
                 }),
         
