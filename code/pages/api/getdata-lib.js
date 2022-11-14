@@ -7,8 +7,8 @@ export default async function handler(req, res) {
     try{
 
         const user = await excuteQuery({
-            query: 'SELECT * FROM ?',
-            values: [data.Table],
+            query: 'SELECT * FROM users',
+            values: [],
         });
         // const user = await prisma.Users.findMany();
         res.status(200).json(user);

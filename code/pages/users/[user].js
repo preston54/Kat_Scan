@@ -8,9 +8,10 @@ export default function Home({data}) {
     const { user } = router.query;
 
     useEffect(() => {
-        data.map(function (item){
+        data?.map(function (item){
             if(item.UserName == user){
                 setUname(item.FirstName);
+                console.log(item.FirstName);
             }
         });
 
