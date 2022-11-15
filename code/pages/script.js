@@ -2,12 +2,14 @@ import  QRCode  from "qrcode";
 import { useEffect } from "react";
 import { useState } from "react";
 
-function App({text}) {
+
+function App({url}) {
+  
   const [src, setSrc] = useState("");
   
 
     useEffect(() =>{
-      QRCode.toDataURL(text).then((setSrc));
+    QRCode.toDataURL(url).then((setSrc));
     }, [] );
 
     return (

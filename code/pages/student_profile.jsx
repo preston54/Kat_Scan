@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactDOM } from "react-dom";
-import { QRCode } from "qrcode";
+import  QRCode  from "qrcode";
 import * as qrcode from 'qrcode';
 import { useEffect } from "react";
 import { useState } from "react";
@@ -10,9 +10,24 @@ import { ScriptHTMLAttributes } from "react";
 
 const StudentProfile  = () =>
 {
-  
-   
 
+  
+  const [url, seturl] = useState(" ");    {/* initilizing url var to be generated for qr code */}
+  const [src, setSrc] = useState("");         {/* initilizing img src for actual qr image */}
+  
+
+
+   function GenerateQR  () {
+
+    seturl("youtube.com");
+
+    
+    QRCode.toDataURL(url).then((setSrc));
+    
+
+    
+     
+  }
 
 
     return ( 
@@ -52,10 +67,13 @@ const StudentProfile  = () =>
                
                  <div className="boxBody"> 
 
-                
-                <div className="qrcode">
-                {App("https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley")}
+                <button onClick={GenerateQR}>QRgen</button>
+                <div>
+                  <img src ={src}/>
                 </div>
+                
+               
+                
                 
                 
                 
