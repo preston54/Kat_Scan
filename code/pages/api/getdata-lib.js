@@ -1,17 +1,15 @@
-import prisma from '../../lib/prisma';
 import excuteQuery from '../../lib/mysql';
-import { execOnce } from 'next/dist/shared/lib/utils';
 
 export default async function handler(req, res) {
-    
     try{
 
-        const user = await excuteQuery({
-            query: 'SELECT * FROM users',
-            values: [],
+        const {body : data} = req;
+        const selectuser = await excuteQuery({
+            query: 'SELECT * FROM ?',
+            values: [data.Table],
         });
-        // const user = await prisma.Users.findMany();
-        res.status(200).json(user);
+        console.log(selectuser)
+        res.status(200).json(selectuser);
 
     }catch (error) {
         console.log(error);
