@@ -54,7 +54,7 @@ export default function Home() {
       
             </Home_Faculty> 
       
-            <Home_Faculty href="View_Report" title="View Report" isSelected={isTabThreeSelected} >
+            <Home_Faculty href="view_table" title="View Report" isSelected={isTabThreeSelected} >
                 
             </Home_Faculty>
           
