@@ -1,4 +1,3 @@
-import prisma from '../../lib/prisma';
 import excuteQuery from '../../lib/mysql';
 
 export default async function handler(req, res) {
@@ -7,18 +6,11 @@ export default async function handler(req, res) {
     try{
 
         const {body : data} = req;
-        const selectuser = await excuteQuery({
+        const selectuser = await excuteQuery({  //createTable
             query: 'SELECT * FROM users WHERE Email = ? AND Password = ?',
             values: [data.Email, data.Password],
         });
-        // const user = await prisma.Users.findFirstOrThrow({
-        //     where:{
-        //         AND:[
-        //             {Email: email},
-        //             {Password: pass},
-        //         ],
-        //     },
-        // })
+      
         console.log(selectuser)
         res.status(200).json(selectuser);
 

@@ -3,27 +3,27 @@ import  Router from 'next/router';
 const login_page = () => {
 
 
-    const submitLog = async (event) => {
+    const submitLog = async (event) => {   //onSubmit event
 
 
-        const email = event.target.email.value;
+        const email = event.target.email.value;  
         const pass = event.target.password.value;
         const uname = "";
         event.preventDefault();
-        const apiUrlEndpoint = 'http://localhost:3000/api/logindata-lib';
+        const apiUrlEndpoint = 'http://localhost:3000/api/logindata-lib';  //createtable-lib
             const postData = {
         
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
                 Email: email,  //names used in api. left side of colon is whats passed in as the name. right side is the id from the form
-                Password: pass,
+                Password: pass, // input course name data here and ^
                 }),
         
             };
-            const response = await fetch(apiUrlEndpoint, postData);
+            const response = await fetch(apiUrlEndpoint, postData); //fetch sends and receives data from/to api
             
-            if (response.status == 200){
+            if (response.status == 200){  //alert("table created")
                 const responsedata = await response.json();
                 console.log(responsedata);
                 uname = responsedata[0].UserName;
@@ -34,7 +34,7 @@ const login_page = () => {
             }
             else{
 
-                alert("User not found, Please check your email or password");
+                alert("User not found, Please check your email or password"); //(""Error with creating table")
             }
     }
 

@@ -66,7 +66,7 @@ export default function Home() {
             
             </Home_Faculty> 
                 
-            <Home_Faculty href="create_course" title="Create Course" isSelected={isTabTwoSelected} >
+            <Home_Faculty href="Create_Course" title="Create Course" isSelected={isTabTwoSelected} >
       
             </Home_Faculty> 
       

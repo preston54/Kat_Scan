@@ -1,25 +1,21 @@
 import excuteQuery from '../../lib/mysql';
 
 export default async function handler(req, res) {
-    const pass = req.body.Password; //info passed from page
-    const email = req.body.Email;  //info passed from page
+    const tableName = req.body.TableName; // am i doing this right?
+    let sqlStatement = "CREATE TABLE " + tableName + "(students VARCHAR(255))" 
+    // const pass = req.body.Password; //info passed from page  const tableName = concat version of names
+    // const email = req.body.Email;  //info passed from page
     try{
 
         const {body : data} = req;
-        const selectuser = await excuteQuery({
-            query: 'SELECT * FROM users WHERE Email = ? AND Password = ?',
-            values: [data.Email, data.Password],
+        const createTable = await excuteQuery({
+            query: sqlStatement, //;'CREATE TABLE ? (students VARCHAR(255))', //inside'' is what is sent to mysql: CREATE TABLE ? (students VARCHAR(255))
+            values: [tableName], //data.CourseName, .....going to be the concat value for tablename
         });
-        // const user = await prisma.Users.findFirstOrThrow({
-        //     where:{
-        //         AND:[
-        //             {Email: email},
-        //             {Password: pass},
-        //         ],
-        //     },
-        // })
-        console.log(selectuser)
-        res.status(200).json(selectuser);
+
+        console.log(tableName)
+        console.log(createTable)
+        res.status(200).json(createTable);
 
     }catch (error) {
         console.log(error);

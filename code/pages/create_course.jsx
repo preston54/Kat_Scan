@@ -1,8 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-
-let classN = "Fall 2022 COSC 4319 Software Engineering";
 
 const Home_Faculty = ({ href, isSelected, title }) => (
     <Link href={href}>
@@ -12,41 +9,43 @@ const Home_Faculty = ({ href, isSelected, title }) => (
     </Link>
 )
 
-export default function Home() {
+export default function Home() { //how can we make this into a onsubmit function, 2 seperate functions?
   const { query } = useRouter();
 
   const isTabOneSelected = !!query.tabOne;
   const isTabTwoSelected = !!query.tabTwo;
   const isTabThreeSelected = !!query.tabThree;
 
-  const [data, setData] = useState([]);
-  const tablename = "Users";
-  const apiUrlEndpoint = 'http://localhost:3000/api/getdata-lib';
-  const postData = {
+  const submitLog = async (event) => {   //onSubmit event
+
+    const CourseName = event.target.courseName.value; //need an onsubmit function for these so that the event can be called
+    const CourseNumber = event.target.courseNumber.value;
+    const CourseSemester = event.target.courseSemester.value;
+    const CourseYear = event.target.courseYear.value;
+    const TableName = CourseName + " " + CourseNumber  + " " + CourseSemester + " " + CourseYear;
+    const tName = CourseName + CourseNumber + CourseSemester + CourseYear;
+
+    
+    event.preventDefault();
+    const apiUrlEndpoint = 'http://localhost:3000/api/createtable-lib';  //createtable-lib
+    const postData = {
 
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-      Table: tablename,
+      TableName: tName,  //names used in api. left side of colon is whats passed in as the name. right side is the id from the form
       }),
 
-  };
-
-  const fetchData = () => {
-
-    fetch(apiUrlEndpoint, postData)
-      .then((response) => response.json())
-      .then((actualData) => {
-        console.log(actualData);
-        setData(actualData);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    };
+    const response = await fetch(apiUrlEndpoint, postData); //fetch sends and receives data from/to api
+    
+    if (response.status == 200){  //alert("table created"
+        alert(TableName + " " + "Created"); // CAUSING ERROR, TableName undefined
+    }
+    else{
+        alert("Error with creating a new course, please try again!"); //(""Error with creating table")
+    }
   }
-  useEffect(() => {
-    fetchData();
-    }, []);
 
   return (
     
@@ -54,13 +53,12 @@ export default function Home() {
             <div className="App_NameF">
             <img src="https://www.shsu.edu/dept/marketing/logos/SHSU-RGB_Orange%20Box.png" alt="SHSU"></img> 
                 <h2>
-                    Kat Scan
+                  Kat Scan
                 </h2>
             </div>
             
       <main className="box">
-         
-        
+  
         <nav>
             <Home_Faculty href="Home_Faculty" title="Home" isSelected={isTabOneSelected} >
             
@@ -78,7 +76,7 @@ export default function Home() {
         <section>
         </section>
         <div>
-            <form id = "courseForm">
+            <form id = "courseForm" onSubmit = {submitLog}>
                 <h1>Create a new course:</h1>
                 <div className="boxtext">
                 <input className = "inputs" type="text" id="courseName" placeholder="Course Name"/>
