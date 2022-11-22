@@ -6,22 +6,13 @@ import Router from 'next/router';
 export default function Home({data}) {
 
     const router = useRouter();
-    // const [uname, setUname] = useState("");
-    // const { classname } = router.query;
+    const { classname } = router.query;
+    const { date } = router.query;
 
-    const className = router.query.classname;
+    console.log( {classname} )
+    console.log( {date} )
 
-    
-
-    // useEffect(() => {
-    //     data?.map(function (item){
-    //         if(item.UserName == user){
-    //             setUname(item.FirstName);
-    //             console.log(item.FirstName);
-    //         }
-    //     });
-
-    // }), [router.query.classname, router.isReady];
+    let className = "";
 
      
 
@@ -52,7 +43,8 @@ export default function Home({data}) {
               Router.push({
                   pathname: 'http://localhost:3000/class/markattendance',
                   query: {
-                    className
+                    classname,
+                    date,
                   },
               });
           }

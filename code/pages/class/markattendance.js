@@ -23,12 +23,21 @@ export default function Home() {
   const [data, setData] = useState([]);
   const tablename = "users";
 
-  const{
-    query: className,
+  const {
+    query: 
+        {classname, date,}
   } = router;
-  const cName = className; 
 
-  console.log(className.className)
+  const props= {
+
+    classname,
+    date,
+  };
+
+
+
+  console.log(props.classname)
+  console.log(props.date)
   
 
 
