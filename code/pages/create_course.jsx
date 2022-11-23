@@ -83,7 +83,7 @@ export default function Home() { //how can we make this into a onsubmit function
                 </div>
                 <br></br>
                 <div className="boxtext">
-                <input className = "inputs" type="number" id="courseNumber" placeholder="Course Number"/>
+                <input className = "inputs" type="number" id="courseNumber" placeholder="Section Number"/>
                 </div>
                 <br></br>
                 <div className="boxtext">

@@ -39,7 +39,7 @@ export default function Home() {
 //   const date = event.target.date.value;
 //   const email = event.target.email.value;
 
-async function markatten () {
+const markatten = async (event) => {
 
     const apiUrlEndpoint = 'http://localhost:3000/api/markdata-lib';
     const postData = {
@@ -58,11 +58,6 @@ async function markatten () {
     console.log(response)
 
 }
-
-
-  console.log(props.classname)
-  console.log(props.date)
-  
 
 
   return (
@@ -96,7 +91,7 @@ async function markatten () {
         </section>
         <div class="Ver_SH box QrTabClass">
             <p align="">"classN"</p>
-            <button class = "QRButton" type="submit">Generate QR code</button>
+            <button class = "QRButton" onClick={markatten} type="submit">Generate QR code</button>
         </div>
         
       </main>
