@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-let classN = "Fall 2022 COSC 4319 Software Engineering";
 
 const Home_Faculty = ({ href, isSelected, title }) => (
     <Link href={href}>
@@ -21,19 +20,44 @@ export default function Home() {
   const isTabThreeSelected = !!query.tabThree;
 
   const [data, setData] = useState([]);
-  const tablename = "users";
 
   const {
     query: 
-        {classname, date,}
+        {classname, date, email,}
   } = router;
 
-  const props= {
+  const props = {
 
     classname,
     date,
+    email,
   };
 
+  console.log(props.email)
+
+//   const tname = event.target.table.value;
+//   const date = event.target.date.value;
+//   const email = event.target.email.value;
+
+async function markatten () {
+
+    const apiUrlEndpoint = 'http://localhost:3000/api/markdata-lib';
+    const postData = {
+
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+        tableName: classname,
+        date: date,
+        email: email,
+    }),
+}
+
+    const response = await fetch(apiUrlEndpoint, postData);
+
+    console.log(response)
+
+}
 
 
   console.log(props.classname)
@@ -70,8 +94,9 @@ export default function Home() {
         </nav>
         <section>
         </section>
-        <div>
-            {/* {cName} */}
+        <div class="Ver_SH box QrTabClass">
+            <p align="">"classN"</p>
+            <button class = "QRButton" type="submit">Generate QR code</button>
         </div>
         
       </main>

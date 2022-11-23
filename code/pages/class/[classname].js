@@ -9,13 +9,6 @@ export default function Home({data}) {
     const { classname } = router.query;
     const { date } = router.query;
 
-    console.log( {classname} )
-    console.log( {date} )
-
-    let className = "";
-
-     
-
     const submitLog = async (event) => {
 
 
@@ -45,6 +38,7 @@ export default function Home({data}) {
                   query: {
                     classname,
                     date,
+                    email,
                   },
               });
           }

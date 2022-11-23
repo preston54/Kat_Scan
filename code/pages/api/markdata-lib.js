@@ -11,27 +11,35 @@ export default async function handler(req, res) {
             values: [data.tableName],
         });
         const alterdata = data.date;
-        let exists = false
-        for(let i = 0; i < table.length; i++){
+            // let exists = false
+            // for(let i = 0; i < table.length; i++){
 
-            if(alterdata == table[i].COLUMN_NAME){
-                exists = true;
-            }
-        }
+            //     if(alterdata == table[i].COLUMN_NAME){
+            //         exists = true;
+            //     }
+            // }
 
-        let sqlinsert = "INSERT INTO " + data.tableName + " (" + data.date + ") VALUES('" + data.email +"')"
+        let sqlinsert = "INSERT INTO " + data.tableName + " (students)  VALUES('" + data.email + "')"
 
-        let sqlupdate = "UPDATE cosc1437 set `11/13/2022` = '1234@332' where `11/11/2022` = '122@332'";
+        let sqlupdate = "UPDATE " + data.tableName + " set `" + data.date + "` = `" + data.email + "' where `students` = '" + data.email +"'";
 
         const updateCol = await excuteQuery({
             query: sqlupdate,
-            values: [data.tableName, data.date, data.email],
+            values: [],
         });
         console.log(updateCol)
-
         if(updateCol.changedRows == 0){
-            console.log("works")
+            executeQuery({
+                query: sqlinsert,
+                values: [],
+            })
+            const update = excuteQuery({
+                query: sqlupdate,
+                values: [],
+            })
         }
+
+        console.log(update)
 
         if(exists){
             //update column with student email
