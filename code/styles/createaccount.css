@@ -8,7 +8,8 @@
 
     height: 80%;
     width: 40%;
-    background-color: #c9daf8ff;
+    /* background-color: #c9daf8ff; */
+    background-color: white;
     border: 5px black;
     border-radius: 20px;
     border-style: solid;
@@ -27,7 +28,6 @@
 .CAinputs{
     width: 40%;
     padding: 1% 4%; 
-    
 }
 
 .CAheader{
@@ -63,10 +63,6 @@
     font-weight: bold;
     color: red;
     font-size: 14px;
-    /* letter-spacing: 0.9em; */
-    /* padding: 15px; */
-    /* border-radius: 5px; */
-    /* margin-top: 5px; */
 }
 
 .tracker-box div{
@@ -74,7 +70,6 @@
 }
 
 .tracker-box .validated{
-    /* color: rgba(255, 255, 255, 0.5); */
     color: #0f0;
 }
 
