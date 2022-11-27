@@ -45,13 +45,15 @@ const markatten = async (event) => {
         date: date,
         email: email,
     }),
-}
+    }
 
     const response = await fetch(apiUrlEndpoint, postData);
+    if (response.status == 200){
+      
+      alert("Your attendance for " + classname + " has been marked");
+  }
 
-    console.log(response)
-
-}
+  }
 
 
   return (
@@ -68,15 +70,15 @@ const markatten = async (event) => {
          
         
         <nav>
-            <Home_Faculty href="Home_Faculty" title="Home" isSelected={isTabOneSelected} >
+            <Home_Faculty href="/home_page" title="Home" isSelected={isTabOneSelected} >
             
             </Home_Faculty> 
                 
-            <Home_Faculty href="Create_Course" title="Create Course" isSelected={isTabTwoSelected} >
+            <Home_Faculty href="/create_course" title="Create Course" isSelected={isTabTwoSelected} >
       
             </Home_Faculty> 
       
-            <Home_Faculty href="view_table" title="View Report" isSelected={isTabThreeSelected} >
+            <Home_Faculty href="/view_table" title="View Report" isSelected={isTabThreeSelected} >
                 
             </Home_Faculty>
           

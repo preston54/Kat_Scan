@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import GeneratePDF from "../components/GeneratePDF";
 
-let classN = "Fall 2022 COSC 4319 Software Engineering";
 
 export default function Home() {
 
@@ -18,11 +17,12 @@ export default function Home() {
     </Link>
 )
   const router = useRouter();
-  const uname = router.query
-
-
+  const {
+    query: 
+        {uname}
+    } = router;
   const [data, setData] = useState([]);
-  const tablename = "qwe123445566";
+  const tablename = "cosc143701Fall2022";
   const apiUrlEndpoint = 'http://localhost:3000/api/getdata-lib';
   const postData = {
 

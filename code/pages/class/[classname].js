@@ -79,7 +79,7 @@ export default function Home({data}) {
             <a href="forgot_password" className="form__link">Forgot your password?</a>
         </p>
         <p className="form__text">
-            <a className="form__link" href="createaccount" id="linkCreateAccount">Don't have an account? Create account</a>
+            <a className="form__link" href="http://localhost:3000/createaccount" id="linkCreateAccount">Don't have an account? Create account</a>
         </p>
     </form>
 </div>
