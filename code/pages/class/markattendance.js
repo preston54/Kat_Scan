@@ -33,12 +33,6 @@ export default function Home() {
     email,
   };
 
-  console.log(props.email)
-
-//   const tname = event.target.table.value;
-//   const date = event.target.date.value;
-//   const email = event.target.email.value;
-
 const markatten = async (event) => {
 
     const apiUrlEndpoint = 'http://localhost:3000/api/markdata-lib';

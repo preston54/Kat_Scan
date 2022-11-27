@@ -31,6 +31,19 @@ const CreateAccount = () => {
                 const response = await fetch(apiUrlEndpoint, postData);
                 if (response.status == 200){
                     alert("Your account has been created!");
+
+                    const apiUrlEndpoint = 'http://localhost:3000/api/createusertable-lib';
+                    const postData = {
+        
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                    UserName: username,
+                    }),
+                    };
+                    const response = await fetch(apiUrlEndpoint, postData);
+                    console.log(response);
+
                 }
                 if (response.status == 500){
                     alert("Your User name or email is not valid");

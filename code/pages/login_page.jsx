@@ -29,7 +29,10 @@ const login_page = () => {
                 uname = responsedata[0].UserName;
                 alert("user found" + uname);
                 Router.push({
-                    pathname: 'http://localhost:3000/view_table',
+                    pathname: 'http://localhost:3000/home_page',
+                    query: {
+                        uname,
+                    }
                 });
             }
             else{

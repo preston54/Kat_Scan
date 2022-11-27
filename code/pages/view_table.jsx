@@ -5,20 +5,21 @@ import GeneratePDF from "../components/GeneratePDF";
 
 let classN = "Fall 2022 COSC 4319 Software Engineering";
 
-const Home_Faculty = ({ href, isSelected, title }) => (
-    <Link href={href}>
-      <a style={{padding: 5, margin: 5, backgroundColor: isSelected ? "blue" : "transparent",}}>
+export default function Home() {
+
+  const Home_Faculty = ({ href, uname, title }) => (
+    <Link href = {{
+        pathname: href,
+        query: {uname,}
+    }}>
+      <a>
         {title}
-</a>
+    </a>
     </Link>
 )
+  const router = useRouter();
+  const uname = router.query
 
-export default function Home() {
-  const { query } = useRouter();
-
-  const isTabOneSelected = !!query.tabOne;
-  const isTabTwoSelected = !!query.tabTwo;
-  const isTabThreeSelected = !!query.tabThree;
 
   const [data, setData] = useState([]);
   const tablename = "users";
@@ -64,15 +65,15 @@ export default function Home() {
          
         
         <nav>
-            <Home_Faculty href="Home_Faculty" title="Home" isSelected={isTabOneSelected} >
+            <Home_Faculty href="/home_page" uname = {uname} title="Home" >
             
             </Home_Faculty> 
                 
-            <Home_Faculty href="Create_Course" title="Create Course" isSelected={isTabTwoSelected} >
+            <Home_Faculty href="/create_course" uname = {uname} title="Create Course">
       
             </Home_Faculty> 
       
-            <Home_Faculty href="View_Report" title="View Report" isSelected={isTabThreeSelected} >
+            <Home_Faculty href="/view_table" uname = {uname} title="View Report">
                 
             </Home_Faculty>
           
@@ -91,7 +92,7 @@ export default function Home() {
                 </tr>
                 </thead>
                 <tbody>
-                {data?.map((item, index) => (
+                {data.map((item, index) => (
             <tr key={index}>
                 <td>{item.FirstName}</td>
                 <td>{item.LastName}</td>

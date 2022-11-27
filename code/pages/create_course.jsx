@@ -1,20 +1,22 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Home_Faculty = ({ href, isSelected, title }) => (
-    <Link href={href}>
-      <a style={{padding: 5, margin: 5, backgroundColor: isSelected ? "blue" : "transparent",}}>
-        {title}
-</a>
-    </Link>
-)
-
 export default function Home() { //how can we make this into a onsubmit function, 2 seperate functions?
-  const { query } = useRouter();
+  const router = useRouter();
+  const uname = router.query
 
-  const isTabOneSelected = !!query.tabOne;
-  const isTabTwoSelected = !!query.tabTwo;
-  const isTabThreeSelected = !!query.tabThree;
+  console.log(uname)
+
+  const Home_Faculty = ({ href, uname, title }) => (
+    <Link href = {{
+        pathname: href,
+        query: {uname,}
+    }}>
+      <a>
+        {title}
+    </a>
+    </Link>
+  )
 
   const submitLog = async (event) => {   //onSubmit event
 
@@ -41,6 +43,19 @@ export default function Home() { //how can we make this into a onsubmit function
     
     if (response.status == 200){  //alert("table created"
         alert(TableName + " " + "Created"); // CAUSING ERROR, TableName undefined
+
+        const apiUrlEndpoint = 'http://localhost:3000/api/updateuser-lib';  //createtable-lib
+        const postData = {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({
+          TableName: tName,  
+          UserName: uname,
+          }),
+
+        };
+        const response = await fetch(apiUrlEndpoint, postData);
+        console.log(response)
     }
     else{
         alert("Error with creating a new course, please try again!"); //(""Error with creating table")
@@ -60,15 +75,15 @@ export default function Home() { //how can we make this into a onsubmit function
       <main className="box">
   
         <nav>
-            <Home_Faculty href="Home_Faculty" title="Home" isSelected={isTabOneSelected} >
+            <Home_Faculty href="/home_page" uname = {uname} title="Home" >
             
             </Home_Faculty> 
                 
-            <Home_Faculty href="create_course" title="Create Course" isSelected={isTabTwoSelected} >
+            <Home_Faculty href="/create_course" uname = {uname} title="Create Course">
       
             </Home_Faculty> 
       
-            <Home_Faculty href="View_Report" title="View Report" isSelected={isTabThreeSelected} >
+            <Home_Faculty href="/view_table" uname = {uname} title="View Report">
                 
             </Home_Faculty>
           

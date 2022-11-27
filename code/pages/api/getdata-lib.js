@@ -2,11 +2,12 @@ import excuteQuery from '../../lib/mysql';
 
 export default async function handler(req, res) {
     try{
-
+         
         const {body : data} = req;
+        const sqlstate = "SELECT * FROM " + data.Table;
         const selectuser = await excuteQuery({
-            query: 'SELECT * FROM ?',
-            values: [data.Table],
+            query: sqlstate,
+            values: [],
         });
         console.log(selectuser)
         res.status(200).json(selectuser);
