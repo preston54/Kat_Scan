@@ -22,6 +22,10 @@ const genQR = async (event) =>{
 
     let cname = event.target.getAttribute('course');
     console.log(cname);
+    const current = new Date();
+    let month = current.getMonth() + 1;
+    const date =  month + "/" + current.getDate() + "/" + current.getFullYear();
+    console.log(date)
     Router.push({
         pathname: 'http://localhost:3000/createaccount',
         query: {
