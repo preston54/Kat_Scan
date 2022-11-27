@@ -22,7 +22,7 @@ export default function Home() {
 
 
   const [data, setData] = useState([]);
-  const tablename = "users";
+  const tablename = "qwe123445566";
   const apiUrlEndpoint = 'http://localhost:3000/api/getdata-lib';
   const postData = {
 
@@ -84,21 +84,15 @@ export default function Home() {
             <table className = "displayText">
                 <thead>
                 <tr>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>Password</th>
-                    <th>Email</th>
-                    <th>UserName</th>
+                    <th>Students</th>
+                    <th>11/27/2022</th>
                 </tr>
                 </thead>
                 <tbody>
                 {data.map((item, index) => (
             <tr key={index}>
-                <td>{item.FirstName}</td>
-                <td>{item.LastName}</td>
-                <td>{item.Password}</td>
-                <td>{item.Email}</td>
-                <td>{item.UserName}</td>
+                <td>{item.students}</td>
+                <td>{item._11_27_2022}</td>
             </tr>
                 ))}
                 </tbody>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import QRCode from "qrcode"
 import Router from "next/router";
 import { useEffect, useState } from "react";
 import styles from '../styles/Home.module.css'
@@ -18,27 +19,68 @@ export default function Home() {
     </a>
     </Link>
 )
-const genQR = async (event) =>{
+// const genQR = async (event) =>{
 
+//     let cname = event.target.getAttribute('course');
+//     console.log(cname);
+//     const current = new Date();
+//     let month = current.getMonth() + 1;
+//     const date =  month + "/" + current.getDate() + "/" + current.getFullYear();
+//     console.log(date)
+//     Router.push({
+//         pathname: 'http://localhost:3000/createaccount',
+//         query: {
+//             cname,
+//         }
+//     });
+//   }
+
+  const atext = "http://localhost:3000/class/";
+
+  const genQR = async (event) => {
+
+    //get course name and date
     let cname = event.target.getAttribute('course');
-    console.log(cname);
     const current = new Date();
     let month = current.getMonth() + 1;
-    const date =  month + "/" + current.getDate() + "/" + current.getFullYear();
-    console.log(date)
-    Router.push({
-        pathname: 'http://localhost:3000/createaccount',
-        query: {
-            cname,
-        }
+    const date =  "_" + month + "_" + current.getDate() + "_" + current.getFullYear();
+
+    //create column for the day in the course table
+  const apiUrlEndpoint = 'http://localhost:3000/api/createdate-lib';
+  const postData = {
+
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+      course: cname,
+      date: date,
+      }),
+
+  };
+  fetch(apiUrlEndpoint, postData)
+  .then(response =>{
+  return response.json()
+  }).then((data) =>{
+    console.log(data)
+  })
+
+    //generate QR code for the course for the day 
+    const url = atext + cname + "?date=" + date;
+
+    await QRCode.toDataURL(url).then((qrSrc) => {
+      var img = new Image();
+      img.src = qrSrc;
+      var new1 = window.open();
+      new1.document.write(img.outerHTML);
+      new1.document.close();
     });
   }
+
   const {
     query: 
         {uname}
     } = router;
 
-//   const [data, setData] = useState([]);
   const tablename = uname;
   const apiUrlEndpoint = 'http://localhost:3000/api/getdata-lib';
   const postData = {
@@ -111,7 +153,7 @@ const genQR = async (event) =>{
             <button class = "QRButton" type="submit">Generate QR code</button>
         </div>
 
-        <div id = "course">     
+        <div id = "course">    
         </div>
       </main>
     </div>

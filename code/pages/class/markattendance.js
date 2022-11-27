@@ -84,8 +84,8 @@ const markatten = async (event) => {
         <section>
         </section>
         <div class="Ver_SH box QrTabClass">
-            <p align="">"classN"</p>
-            <button class = "QRButton" onClick={markatten} type="submit">Generate QR code</button>
+            <p align="">{classname}</p>
+            <button class = "QRButton" onClick={markatten} type="submit">Mark Attendance</button>
         </div>
         
       </main>
