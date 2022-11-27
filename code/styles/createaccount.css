@@ -56,4 +56,31 @@
     margin-top: 0%;
 }
 
+.tracker-box{
+    margin-left: 31%;
+    width:37%;
+    background-color: white;
+    font-weight: bold;
+    color: red;
+    font-size: 14px;
+    /* letter-spacing: 0.9em; */
+    /* padding: 15px; */
+    /* border-radius: 5px; */
+    /* margin-top: 5px; */
+}
 
+.tracker-box div{
+    margin: 5px 0;
+}
+
+.tracker-box .validated{
+    /* color: rgba(255, 255, 255, 0.5); */
+    color: #0f0;
+}
+
+.list-icon{
+    margin-right: 8px;
+}
+.list-icon.green{
+    color: #0f0;
+}
