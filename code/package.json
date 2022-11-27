@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.5.0",
+    "bcrypt": "^5.1.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.25",
     "mysql": "^2.18.1",

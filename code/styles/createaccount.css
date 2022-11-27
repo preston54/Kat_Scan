@@ -6,9 +6,10 @@
 
 .CAbox{
 
-    height: 80%;
+    height: 85%;
     width: 40%;
-    background-color: #c9daf8ff;
+    /* background-color: #c9daf8ff; */
+    background-color: white;
     border: 5px black;
     border-radius: 20px;
     border-style: solid;
@@ -27,7 +28,6 @@
 .CAinputs{
     width: 40%;
     padding: 1% 4%; 
-    
 }
 
 .CAheader{
@@ -56,4 +56,27 @@
     margin-top: 0%;
 }
 
+.tracker-box{
+    margin-left: 31%;
+    width:37%;
+    background-color: white;
+    font-weight: bold;
+    color: red;
+    font-size: 14px;
+}
 
+.tracker-box div{
+    margin: 5px 0;
+}
+
+.tracker-box .validated{
+    color: #0f0;
+}
+
+.list-icon{
+    margin-right: 8px;
+}
+.list-icon.green{
+    color: #0f0;
+}
+.icon-span{cursor: pointer;}
