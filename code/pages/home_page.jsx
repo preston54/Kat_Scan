@@ -8,32 +8,21 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const router = useRouter();
+  const {
+    query: 
+        {uname}
+    } = router;
 
   const Home_Faculty = ({ href, uname, title }) => (
     <Link href = {{
         pathname: href,
         query: {uname,}
     }}>
-      <a>
+      <a className="homebar">
         {title}
     </a>
     </Link>
 )
-// const genQR = async (event) =>{
-
-//     let cname = event.target.getAttribute('course');
-//     console.log(cname);
-//     const current = new Date();
-//     let month = current.getMonth() + 1;
-//     const date =  month + "/" + current.getDate() + "/" + current.getFullYear();
-//     console.log(date)
-//     Router.push({
-//         pathname: 'http://localhost:3000/createaccount',
-//         query: {
-//             cname,
-//         }
-//     });
-//   }
 
   const atext = "http://localhost:3000/class/";
 
@@ -75,11 +64,6 @@ export default function Home() {
       new1.document.close();
     });
   }
-
-  const {
-    query: 
-        {uname}
-    } = router;
 
   const tablename = uname;
   const apiUrlEndpoint = 'http://localhost:3000/api/getdata-lib';
@@ -148,11 +132,6 @@ export default function Home() {
         </nav>
         <section>
         </section>
-        <div class="Ver_SH box QrTabClass">
-            <p align="">"classN"</p>
-            <button class = "QRButton" type="submit">Generate QR code</button>
-        </div>
-
         <div id = "course">    
         </div>
       </main>

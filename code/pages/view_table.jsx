@@ -11,7 +11,7 @@ export default function Home() {
         pathname: href,
         query: {uname,}
     }}>
-      <a>
+      <a className="homebar">
         {title}
     </a>
     </Link>

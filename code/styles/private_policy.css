@@ -1,0 +1,28 @@
+.PPApp_Name{
+    height: 10%;
+    width: 25%;
+    display:flex;
+    background-color: #6fa8dcff;
+    border: 5px black;
+    border-radius: 0px;
+    border-style: solid;
+    text-align: center;
+    font-size: 25px;
+    margin-right: 30%;
+    margin-top: 0%;
+}
+
+.PPbox{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.PPheader{
+
+    text-decoration: underline;
+}
+
+.privacyPolicyheader{
+    color: blue;
+    text-decoration: underline;
+}

@@ -79,4 +79,10 @@
 .list-icon.green{
     color: #0f0;
 }
-.icon-span{cursor: pointer;}
+.icon-span{
+    cursor: pointer;
+}
+.homebar{
+    margin-right: 10px;
+    margin-left: 10px;
+}
