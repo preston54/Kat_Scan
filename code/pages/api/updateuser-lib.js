@@ -4,7 +4,7 @@ import excuteQuery from '../../lib/mysql';
 export default async function handler(req, res) {
     try{
         const {body : data} = req;
-        console.log(data.UserName.uname)
+        console.log(data.UserName)
         const sqlstate = "INSERT INTO " + data.UserName + " (courses) VALUES('" + data.TableName +"')";  
         const newnewuser = await excuteQuery({
             query: sqlstate,
