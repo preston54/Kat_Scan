@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     try{
         const {body : data} = req;
         console.log(data.UserName.uname)
-        const sqlstate = "INSERT INTO " + data.UserName.uname + " (courses) VALUES('" + data.TableName +"')";  
+        const sqlstate = "INSERT INTO " + data.UserName + " (courses) VALUES('" + data.TableName +"')";  
         const newnewuser = await excuteQuery({
             query: sqlstate,
             values: [],

@@ -85,14 +85,14 @@ export default function Home() {
                 <thead>
                 <tr>
                     <th>Students</th>
-                    <th>11/27/2022</th>
+                    <th>11/28/2022</th>
                 </tr>
                 </thead>
                 <tbody>
                 {data.map((item, index) => (
             <tr key={index}>
                 <td>{item.students}</td>
-                <td>{item._11_27_2022}</td>
+                <td>{item._11_28_2022}</td>
             </tr>
                 ))}
                 </tbody>
