@@ -22,7 +22,7 @@ export default function Home() {
         {uname}
     } = router;
   const [data, setData] = useState([]);
-  const tablename = "cosc143701Fall2022";
+  const tablename = "cosc143901Fall2022";
   const apiUrlEndpoint = 'http://localhost:3000/api/getdata-lib';
   const postData = {
 
