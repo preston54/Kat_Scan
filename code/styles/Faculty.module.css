@@ -78,3 +78,19 @@ img {
 td{
     border: 5px black;
 }
+
+.topright{
+    height: 10%;
+    width: 25%;
+    display:flex;
+    background-color: #6fa8dcff;
+    border: 5px black;
+    border-radius: 0px;
+    border-style: solid;
+    text-align: center;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 30px;
+
+}

@@ -8,7 +8,7 @@ export default async function handler(req, res) {
         const {body : data} = req;
         let sqlinsert = "INSERT INTO " + data.tableName + " (students)  VALUES('" + data.email + "')"
         console.log(data.email)
-        let sqlupdate = "UPDATE " + data.tableName + " set `" + data.date + "` = '" + data.email + "' where `students` = '" + data.email + "'";
+        let sqlupdate = "UPDATE " + data.tableName + " set `" + data.date + "` = '" + data.stuname + "' where `students` = '" + data.email + "'";
         const updateCol = await excuteQuery({
             query: sqlupdate,
             values: [],

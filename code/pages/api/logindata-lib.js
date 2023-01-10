@@ -1,4 +1,3 @@
-import prisma from '../../lib/prisma';
 import excuteQuery from '../../lib/mysql';
 
 export default async function handler(req, res) {
@@ -10,13 +9,21 @@ export default async function handler(req, res) {
         const {body : data} = req;
         const selectuser = await excuteQuery({
             query: 'SELECT * FROM users WHERE Email = ?',
-            values: [data.Email],
+            values: [email],
         });
-        if(bcrypt.compare(pass, selectuser.Password)){
-            res.status(200).json(selectuser);
+        if(pass){
+            bcrypt.compare(pass, selectuser[0].Password, function(err, result){
+                
+                if(result){
+                    res.status(200).json(selectuser);
+                }
+                else{
+                    res.status(500).json(err);
+                }
+            })
         }
         else{
-            res.status(500).json(selecteduser);
+            res.status(500).json(selectuser);
         }
 
     }catch (error) {

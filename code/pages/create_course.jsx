@@ -21,15 +21,23 @@ export default function Home() {
 
   const submitLog = async (event) => {   
 
+    event.preventDefault();
+
     const CourseName = event.target.courseName.value; 
     const CourseNumber = event.target.courseNumber.value;
     const CourseSemester = event.target.courseSemester.value;
     const CourseYear = event.target.courseYear.value;
+    let CourseTimeHour = event.target.courseTimehour.value;
+    const CourseTimeMinute = event.target.courseTimeminute.value;
+    const ampm = event.target.timeofday.value;
     const TableName = CourseName + " " + CourseNumber  + " " + CourseSemester + " " + CourseYear;
     const tName = CourseName + CourseNumber + CourseSemester + CourseYear;
 
-    
-    event.preventDefault();
+    if( ampm == "pm" && CourseTimeHour != "12"){
+      CourseTimeHour = Number(CourseTimeHour) + 12
+      console.log(CourseTimeHour)
+    }
+
     const apiUrlEndpoint = 'http://localhost:3000/api/createtable-lib';  
     const postData = {
 
@@ -50,7 +58,9 @@ export default function Home() {
           method: "POST",
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify({
-          TableName: tName,  
+          TableName: tName, 
+          CourseHour: CourseTimeHour,
+          CourseMinute: CourseTimeMinute, 
           UserName: uname,
           }),
 
@@ -97,20 +107,24 @@ export default function Home() {
                 <div className="boxtext">
                 <input className = "inputs" type="text" id="courseName" placeholder="Course Name"/>
                 </div>
-                <br></br>
                 <div className="boxtext">
                 <input className = "inputs" type="number" id="courseNumber" placeholder="Section Number"/>
                 </div>
-                <br></br>
                 <div className="boxtext">
                 <input className = "inputs" type="text" id="courseSemester" placeholder="Course Semester"/>
                 </div>
-                <br></br>
                 <div className="boxtext">
                 <input className = "inputs" type="number" id="courseYear"  placeholder="Course Year"/>
                 </div>
                 <br></br>
-                <br></br>
+                <div className="boxtext">
+                <input className = "inputs" type="number" id="courseTimehour"  placeholder="Hour Start(EX: 12) "/>
+                <input className = "inputs" type="number" id="courseTimeminute"  placeholder="Minute Start(EX: 00) "/>
+                <select name="timeofday" id="timeofday">
+                <option value="am">AM</option>
+                <option value="pm">PM</option>
+                </select>
+                </div>
                 <button className = "submitButton" type="submit">Submit</button>
             </form>
         </div>

@@ -54,7 +54,7 @@ export default function Home() {
   })
 
     //generate QR code for the course for the day 
-    const url = atext + cname + "?date=" + date;
+    const url = atext + cname + "?facname=" + uname + "&date=" + date;
 
     await QRCode.toDataURL(url).then((qrSrc) => {
       var img = new Image();

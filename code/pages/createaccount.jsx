@@ -17,6 +17,8 @@ const CreateAccount = () => {
         const pass1 = event.target.password.value;
         const pass2 = event.target.con_password.value;
         const email = event.target.email.value;
+        const usertype = event.target.usertype.value;
+
 
 
         if(pass1 == pass2){
@@ -33,12 +35,12 @@ const CreateAccount = () => {
                 Username: username,
                 }),
             };
-        
-                const response = await fetch(apiUrlEndpoint, postData);
-                if (response.status == 200){
-                    alert("Your account has been created!");
-                    const apiUrlEndpoint = 'http://localhost:3000/api/createusertable-lib';
-                    const postData = {
+            const response = await fetch(apiUrlEndpoint, postData);
+            if (response.status == 200){
+                alert("Your account has been created!");
+                if(usertype == "faculty"){
+                const apiUrlEndpoint = 'http://localhost:3000/api/createusertable-lib';
+                const postData = {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({
@@ -48,9 +50,10 @@ const CreateAccount = () => {
                 const response = await fetch(apiUrlEndpoint, postData);
                 console.log(response)
                 }
-                if (response.status == 500){
-                    alert("Your User name or email is not valid");
-                }
+            }
+            if (response.status == 500){
+                alert("Your User name or email is not valid");
+            }
             
         }else{
 
@@ -129,15 +132,15 @@ const CreateAccount = () => {
                     <div className="CAboxtext">
                     <input className = "inputs" type="text" id="first" name="first" placeholder="First Name"/>
                     </div>
-                    <br></br>
+                    
                     <div className="CAboxtext">
                     <input className = "inputs" type="text" id="last" name="last" placeholder="Last name"/>
                     </div>
-                    <br></br>
+                    
                     <div className="CAboxtext">
                     <input className = "inputs" type="text" id="username" name="username" placeholder="User Name"/>
                     </div>
-                    <br></br>
+                    
                     <div className="CAboxtext">
                     <input className = "inputs" type={type} id="password" name="password" placeholder="Password"
                     onChange={(e)=>handleChange(e.target.value)} />
@@ -234,6 +237,15 @@ const CreateAccount = () => {
                     <br></br>
                     <div className="CAboxtext">
                     <input className = "inputs" type="email" id="email" name="email" placeholder="Email"/>
+                    </div>
+                    <br></br>
+                    <div className="CAboxtext">
+                    <input type="radio" id="student" className="inputs" name="usertype" value="student"/>
+                    <label for="student">Student</label>
+                    </div>
+                    <div className="CAboxtext">
+                    <input type="radio" id="faculty" className="inputs" name="usertype" value="faculty"/>
+                    <label for="faculty">Faculty</label>
                     </div>
                     <br></br>
                     <button className = "CAsubmitButton" type="submit">Submit</button>

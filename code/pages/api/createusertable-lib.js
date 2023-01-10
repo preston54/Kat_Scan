@@ -2,7 +2,7 @@ import excuteQuery from '../../lib/mysql';
 
 export default async function handler(req, res) {
     const userName = req.body.Username; 
-    let sqlStatement = "CREATE TABLE `" + userName + "`(courses VARCHAR(255))" 
+    let sqlStatement = "CREATE TABLE `" + userName + "`(courses VARCHAR(255), courseHour VARCHAR(255), courseMinute VARCHAR(255))" 
     try{
 
         const {body : data} = req;
