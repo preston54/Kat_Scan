@@ -59,13 +59,16 @@ export default function Home() {
         rows.push(Object.values(element));
     }); 
     console.log(rows)
-    doc.autoTable({
+    doc.autoTable(columns, rows, {
         
+        startY: 5,
         theme: "grid",
         horizontalPageBreak: true,
         horizontalPageBreakRepeat: 0,
-        columns, 
-        body: rows
+        didDrawPage: function (data){
+          
+          doc.text(cname, data.settings.margin.left, 22)
+        }
     
     })
     let docname = cname + ".pdf"
