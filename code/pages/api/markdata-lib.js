@@ -1,4 +1,3 @@
-import { Table } from 'jspdf-autotable';
 import excuteQuery from '../../lib/mysql';
 
 export default async function handler(req, res) {

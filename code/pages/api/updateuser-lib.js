@@ -1,4 +1,3 @@
-import prisma from '../../lib/prisma';
 import excuteQuery from '../../lib/mysql';
 
 export default async function handler(req, res) {
