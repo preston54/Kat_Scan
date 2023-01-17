@@ -23,10 +23,11 @@ export default function Home() {
 
     event.preventDefault();
 
-    const CourseName = event.target.courseName.value; 
-    const CourseNumber = event.target.courseNumber.value;
-    const CourseSemester = event.target.courseSemester.value;
-    const CourseYear = event.target.courseYear.value;
+    const Regex = /^\s+|\s+$|\s+/g;
+    const CourseName = event.target.courseName.value.replace(Regex, ""); 
+    const CourseNumber = event.target.courseNumber.value.replace(Regex, "");
+    const CourseSemester = event.target.courseSemester.value.replace(Regex, "");
+    const CourseYear = event.target.courseYear.value.replace(Regex, "");
     let CourseTimeHour = event.target.courseTimehour.value;
     const CourseTimeMinute = event.target.courseTimeminute.value;
     const ampm = event.target.timeofday.value;

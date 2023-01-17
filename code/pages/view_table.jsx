@@ -61,7 +61,7 @@ export default function Home() {
     console.log(rows)
     doc.autoTable(columns, rows, {
         
-        startY: 5,
+        startY: 25,
         theme: "grid",
         horizontalPageBreak: true,
         horizontalPageBreakRepeat: 0,
