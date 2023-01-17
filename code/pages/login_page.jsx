@@ -15,34 +15,34 @@ const login_page = () => {
         const uname = "";
         event.preventDefault();
         const apiUrlEndpoint = 'http://localhost:3000/api/logindata-lib';
-            const postData = {
+        const postData = {
+    
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+            Email: email,
+            Password: pass,
+            }),
+    
+        };
+        const response = await fetch(apiUrlEndpoint, postData);
         
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({
-                Email: email,
-                Password: pass,
-                }),
-        
-            };
-            const response = await fetch(apiUrlEndpoint, postData);
-            
-            if (response.status == 200){
-                const responsedata = await response.json();
-                console.log(responsedata);
-                uname = responsedata[0].UserName;
-                alert("user found" + uname);
-                Router.push({
-                    pathname: 'http://localhost:3000/home_page',
-                    query: {
-                        uname,
-                    }
-                });
-            }
-            else{
+        if (response.status == 200){
+            const responsedata = await response.json();
+            console.log(responsedata);
+            uname = responsedata[0].UserName;
+            alert("user found" + uname);
+            Router.push({
+                pathname: 'http://localhost:3000/home_page',
+                query: {
+                    uname,
+                }
+            });
+        }
+        else{
 
-                alert("User not found, Please check your email or password");
-            }
+            alert("User not found, Please check your email or password");
+        }
     }
 
     const [type, setType] = useState("password");
